@@ -6,7 +6,6 @@ import {
   Clock,
   Circle,
   XCircle,
-  AlertTriangle,
 } from "lucide-react";
 
 interface Todo {

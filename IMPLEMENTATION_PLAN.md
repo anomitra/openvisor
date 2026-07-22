@@ -1,4 +1,4 @@
-# Implementation Plan — Openlog
+# Implementation Plan — OpenVisor
 
 ## Architecture
 - **Framework**: Next.js 16 (App Router), all client components ("use client")

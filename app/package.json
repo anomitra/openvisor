@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "openvisor",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,5 +27,8 @@
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

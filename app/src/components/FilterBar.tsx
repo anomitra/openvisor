@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { X } from "lucide-react";
-import type { Message, AgentPart } from "@/types/export";
+import type { Message } from "@/types/export";
 
 export interface FilterState {
   role: string | null;

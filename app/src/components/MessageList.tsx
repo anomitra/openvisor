@@ -12,7 +12,7 @@ interface MessageListProps {
   filters: FilterState;
 }
 
-function useTurnState(turnCount: number) {
+function useTurnState() {
   const [collapsed, setCollapsed] = useState<Map<number, boolean>>(new Map());
   const [assistantCollapsed, setAssistantCollapsed] = useState<
     Map<string, boolean>
@@ -83,17 +83,20 @@ function useTurnState(turnCount: number) {
 export default function MessageList({ messages, filters }: MessageListProps) {
   const filtered = filterMessages(messages, filters);
 
-  const turns: { user: Message; assistants: Message[] }[] = [];
-  for (const msg of filtered) {
-    if (msg.info.role === "user") {
-      turns.push({ user: msg, assistants: [] });
-    } else if (turns.length > 0 && msg.info.parentID) {
-      const last = turns[turns.length - 1];
-      if (last.user.info.id === msg.info.parentID) {
-        last.assistants.push(msg);
+  const turns = useMemo(() => {
+    const result: { user: Message; assistants: Message[] }[] = [];
+    for (const msg of filtered) {
+      if (msg.info.role === "user") {
+        result.push({ user: msg, assistants: [] });
+      } else if (result.length > 0 && msg.info.parentID) {
+        const last = result[result.length - 1];
+        if (last.user.info.id === msg.info.parentID) {
+          last.assistants.push(msg);
+        }
       }
     }
-  }
+    return result;
+  }, [filtered]);
 
   const assistantIds = useMemo(
     () => turns.flatMap((t) => t.assistants.map((a) => a.info.id)),
@@ -107,7 +110,7 @@ export default function MessageList({ messages, filters }: MessageListProps) {
     toggleAssistant,
     expandAll,
     collapseAll,
-  } = useTurnState(turns.length);
+  } = useTurnState();
 
   if (filtered.length === 0) {
     return (
