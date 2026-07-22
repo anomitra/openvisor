@@ -198,7 +198,7 @@ export default function Landing({
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-black font-medium text-sm hover:bg-zinc-200 transition-colors disabled:opacity-50"
             >
               <Upload className="w-4 h-4" />
-              {parsing ? "Loading..." : "Upload JSON"}
+                {parsing ? "Loading..." : "Drop JSON"}
             </button>
             <button
               onClick={loadSample}
