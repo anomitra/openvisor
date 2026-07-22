@@ -223,7 +223,7 @@ export default function Landing({
       </main>
 
       <footer className="relative flex items-center justify-center gap-4 py-4 text-sm text-zinc-600">
-        <span>MIT License</span>
+        <a href="https://mit-license.org/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400 transition-colors">MIT License</a>
         <span className="text-zinc-800">·</span>
         <span>No cookies. No tracking. No servers.</span>
       </footer>
