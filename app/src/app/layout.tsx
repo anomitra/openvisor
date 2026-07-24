@@ -19,8 +19,9 @@ export const metadata: Metadata = {
       {
         url: "/og-image.png",
         width: 1200,
-        height: 630,
+        height: 627,
         alt: "OpenVisor — OpenCode Session Explorer",
+        type: "image/png",
       },
     ],
   },
