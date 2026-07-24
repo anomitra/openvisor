@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "OpenVisor",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://openvisor.vercel.app/og-image.png",
         width: 1200,
         height: 627,
         alt: "OpenVisor — OpenCode Session Explorer",
